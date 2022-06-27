@@ -24,5 +24,4 @@ string GeneratePasswordHashUsingSalt(string passwordText, byte[] salt)
     var passwordHash = Convert.ToBase64String(hashBytes);
 
     return passwordHash;
-
 }
