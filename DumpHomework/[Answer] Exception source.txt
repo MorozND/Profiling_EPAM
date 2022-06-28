@@ -1,0 +1,4 @@
+From the dump we can see that the incoming string for calculator is "11++++23";
+The [result] method works in a way that it searhces for operation's sign ("+" in our case),
+and tries to convert left and right substrings into "double" format.
+In our case right substrings will be "+++23", which throws an ecxeption during convertion, as we don't use [TryConvert] methods.
