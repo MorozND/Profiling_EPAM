@@ -3,10 +3,12 @@ using System.Text;
 
 var password = "qwerty";
 var salt = "akfncheurkfhjdpe";
-var saltBytes = Encoding.UTF8.GetBytes(salt);
+var saltBytes = Encoding.Default.GetBytes(salt);
 
 Console.WriteLine($"Password: {password}");
 Console.WriteLine($"Salt: {salt}");
+
+var test = Console.OutputEncoding;
 
 var hash = GeneratePasswordHashUsingSalt(password, saltBytes);
 
@@ -22,5 +24,5 @@ string GeneratePasswordHashUsingSalt(string passwordText, byte[] salt)
     Buffer.BlockCopy(salt, 0, hashBytes, 0, 16);
     Buffer.BlockCopy(hash, 0, hashBytes, 16, 20);
 
-    return Encoding.UTF8.GetString(hashBytes);
+    return Convert.ToBase64String(hashBytes);
 }
